@@ -1,0 +1,51 @@
+﻿doctype html
+html(lang='en')
+	head
+		title The Maestros: Data
+		meta(charset="utf-8")
+		link(rel='stylesheet', href='stylesheets/foundation.css')
+		link(rel='stylesheet', href="stylesheets/foundation.min.css")
+		link(rel='stylesheet', href="stylesheets/normalize.css")
+		link(rel='stylesheet', href="stylesheets/style.css")
+		script(src='/js/vendor/modernizr.js')
+
+	body
+		// End Header and Nav
+		.row
+			// Main Content Section
+			// This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens
+			.large-9.push-12.columns
+				h2
+					b The Maestros: Account Management Panel
+
+				block accountBlock
+			// Nav Sidebar
+
+			p
+		// Footer
+		footer.row
+			script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+			script(src='/js/foundation.min.js')
+			script(src='/js/smoothie.js')
+			script(src='/js/underscore-min.js')
+			script(src='/js/require.js')
+			script. // hax on hax, add a hard-coded exports due to an issue with TypeScript ~2.3.1 expecting the value when it won't always be there.  Remove with next Typescript upgrade - it's useless.
+				var exports = {}; 
+			script(src='/controllers/accountManagement.js')
+
+			.large-12.columns
+				hr
+				.row
+					.large-6.columns
+						p &copy; The Maestros 2014
+					.large-6.columns
+						ul.inline-list.right
+							li
+								a(href='http://maestrosgame.com/') The Maestros
+							li
+								a(href='https://www.facebook.com/TheMaestrosGame') Facebook
+							li
+								a(href='https://twitter.com/MaestrosGame') Twitter
+							li
+								a(href='http://gamepipe.usc.edu/') USC Gamepipe Laboratory
+

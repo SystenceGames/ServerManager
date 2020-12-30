@@ -1,0 +1,86 @@
+﻿extends layout
+
+block generalBlock
+	a(name="general")
+	h3: b General
+
+	h5(id="serviceTitle") Services
+	a(href="#", id="serviceList-show", class="showLink", onclick="showHide('serviceList'); return false;") Show
+	div(class="more", id="serviceList")
+		a(href="#" id="serviceList-hide" class="hideLink", onclick="showHide('serviceList'); return false;") Hide
+		div(id="realTimeServiceTable")
+
+	h5 Change MotD
+	if(data)
+		div(align="right" style="width:400px")
+			form(name = "motd", method="post", action="/admin/newMOTD")
+				input(type="text", value="#{data.currentMotd}", name="motd")
+				input(type="submit", align="right", value="Update MotD")
+
+	h5 Change Feature Toggles
+	h6 ex: { "isOnline": false, "multiplayerEnabled": false }
+	if(data)
+		div(align="right" style="width:400px")
+			form(name = "featureToggles", method="post", action="/admin/newFeatureToggles")
+				input(type="text", value="#{data.currentFeatureToggles}", name="featureToggles")
+				input(type="submit", align="right", value="Update Feature Toggles")
+
+	a(href="/accountmanagement")
+		| Link to Account Management Panel
+
+block playerBlock
+	a(name="players")
+	h3: b Player Info
+
+	canvas(id="mycanvas" width="600" height="150")
+	p (Green: in lobby; Pink: in game)
+	div(id="realTimeStatsTable")
+
+block patchBlock
+	a(name="patch")
+	h3: b Patch Control Panel
+	if(data)
+		p 
+			| Current Patch Line (Ideal Game Version): 
+			b #{data.currentPatch}
+	div(align="right" style="width:400px")
+		form(name="patchForm", method="post", action="/admin/initiatePatch")
+			select(name="patchLinePicker")
+				option -- Select Patch Line --
+				if(data.patchLines)
+					for item in data.patchLines
+						option(value="#{item}") #{item}
+			input(type="submit", align="right", value="Override Patch")
+
+
+block gamesBlock
+	a(name="games")
+	h3: b Game Info
+	h4(style='white-space:pre;') Open Lobbies
+
+	a(href="#", id="lobbyList-show", class="showLink", onclick="showHide('lobbyList');return false;") Show
+	div(class="more", id="lobbyList") 
+		a(href="#" id="lobbyList-hide" class="hideLink" onclick="showHide('lobbyList');return false;") Hide
+		div(id="lobbies")
+	
+	h4(style='white-space:pre;') Games in Progress
+	a(href="#", id="gamesList-show", class="showLink", onclick="showHide('gamesList');return false;") Show
+	div(class="more", id="gamesList")
+		a(href="#" id="gamesList-hide" class="hideLink" onclick="showHide('gamesList');return false;") Hide
+		div(id="gamesListTab")
+
+
+block serverBlock
+	a(name="servers")
+	h3: b Server Info (Ugly)
+	div(id="servs")
+	a(href="#", id="uglyServs-show", class="showLink", onclick="showHide('uglyServs');return false;") Show
+	div(class="more", id="uglyServs")
+		a(href="#" id="uglyServs-hide" class="hideLink", onclick="showHide('uglyServs'); return false;") Hide
+		div(id="uglyServerJSON")
+	
+	h3: b Server Info (Pretty)
+	a(href="#", id="servList-show", class="showLink", onclick="showHide('servList'); return false;") Show
+	div(class="more", id="servList")
+		a(href="#" id="servList-hide" class="hideLink", onclick="showHide('servList'); return false;") Hide
+		div(id="serverListP")

@@ -1,0 +1,65 @@
+body {
+  padding: 15px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.showRed {
+    color:#FF0000;
+}
+
+.showGreen{
+    color:#00CC33;
+}
+
+ .more {
+      display: none;
+      }
+   a.showLink, a.hideLink {
+      text-decoration: none;
+      color: #36f;
+      padding-left: 8px;
+      }
+   a.showLink:hover, a.hideLink:hover {
+      border-bottom: 1px dotted #36f; }
+
+.table {
+    width: 100%;
+}
+
+.accountLookupTableContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 150%;
+}
+
+.accountLookupRow {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex: 1;
+}
+
+.accountLookupCell {
+	flex: 1;
+	text-align: left;
+}
+
+.accountLookupInventory {
+	flex: 1;
+	text-align: left;
+}
+
+.noneDisplay {
+	display: none;
+}
+
+.blockDisplay {
+	display: block;
+}

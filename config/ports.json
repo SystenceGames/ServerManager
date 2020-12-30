@@ -1,0 +1,10 @@
+﻿{
+  "serverManagerPage": {
+    "type": "TCP",
+    "Port": 10800
+  },
+  "serverManagerRedirect": {
+  	"type": "TCP",
+  	"Port": 80
+  }
+}

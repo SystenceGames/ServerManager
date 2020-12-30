@@ -1,0 +1,45 @@
+﻿extends layoutAccountManagement
+
+block accountBlock
+	a(name="account")
+	h3: b Account Management
+	a(href="/admin")
+		| Link to Admin Panel
+	h4 Account Creation
+	div(align="right" style="width:400px")
+		form(name = "accountCreationForm", method="post", onSubmit="confirmAccountCreation();")
+			div(align="left")
+				| Username
+				input(type="text", name="usernameField", id="accountCreationUsername")
+				| Password
+				input(type="text", name="passwordField", id="accountCreationPassword")
+				| Email
+				input(type="text", name="emailField", id="accountCreationEmail")
+				| Birthday
+				input(type="date", name="birthdayField", id="accountCreationBirthday")
+				| Maxed Out Account?
+				br
+				input(type="checkbox", name="isMaxAccountField", id="accountCreationIsMaxAccount")
+				| Yes
+			input(type="submit", align="right", value="Create Account")
+	h4 Account Deletion
+	div(align="right" style="width:400px")
+		form(name = "accountDeletionForm", method="post",  onSubmit="confirmAccountDeletion();")
+			div(align="left")
+				| Username
+				input(type="text", name="usernameField", id="accountDeletionUsername")
+			input(type="submit", align="right", value="Delete Account")
+	h4 Account Lookup/Edit
+	div(align="right" style="width:400px")
+		form(name = "accountLookupForm", method="post", onSubmit="accountLookup();")
+			div(align="left")
+				| Username
+				input(type="text", name="usernameField", id="accountLookupUsername")
+				| Email
+				input(type="text", name="emailField", id="accountLookupEmail")
+			input(type="submit", align="right", value="Account Lookup")
+	div(align="right" style="width:400px")
+		div(id="accountLookupTable")
+		input(type="hidden", id="accountEditButton", align="right", value="Account Edit", onClick="accountEdit()")
+		input(type="hidden", id="accountEditConfirmButton", align="right", value="Confirm", onClick="accountEditConfirm()")
+		input(type="hidden", id="accountEditCancelButton", align="right", value="Cancel", onClick="accountEditCancel()")

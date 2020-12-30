@@ -1,0 +1,9 @@
+﻿script.
+    {document.getElementById("myButton").onclick = function () {location.href = "www.yoursite.com";};
+
+div(style='text-align: center')
+    p Are you sure you want to disable Platform?
+    form(name="disableP", method="get", action="/admin/disablePlatform")
+        input(type="submit", value="Toggle Platform Online Status")
+
+    input(type="button", align="center", value="Go Back", onclick="location.hrefs = '/admin")
